@@ -3,7 +3,7 @@
 Appeler la fonction paraphone(mot,nb_mots)
 Le mot doit être écrit en phonétique,
 Utiliser le tableau des code phonétiques pour correctemement l'orthographier.
-Il faut utiliser la première colonne (code lexique)
+Il faut utiliser la première colonne du 'tableau code phonetique.png' (code lexique)
 
 ex : 
 
@@ -28,4 +28,4 @@ rosés                         score :  0.97
 rosées                        score :  0.97
 
 Le deuxième chiffre est le nombre de mots à afficher
-
+Remarque : le mot doit être décomposé en syllabes par un '-'
