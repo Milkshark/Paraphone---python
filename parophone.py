@@ -65,6 +65,9 @@ def parophone(mot,nb_mots):
             if c[0] in mot[1]:
                 mot[1] = mot[1].replace(c[0], c[1])
         
-        print (mot[1] + (30 - len(mot[1]))*' ' + 'score :  ' + str(round(mot[0],2)))
+        print (mot[1] + (25 - len(mot[1]))*' ' + 'score :  ' + str(round(mot[0],2)))
 
 
+while 1:
+	mot_parophone = input('mot : ')
+	parophone(str(mot_parophone),30)
