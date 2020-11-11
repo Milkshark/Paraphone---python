@@ -40,19 +40,19 @@ def similarite_mot(a,b):
             score += 0.6*similarite_syllabe(les_syllabes_a[syllabe],les_syllabes_b[syllabe])
     return (score/longeur_max)
 
-def paraphone(mot,nb_mots):
-    'Renvoie *nb_mots* de paraphones de *mot*. *mot* doit être ecrit en fo-ne-tik'
-    paraphones_trouves = []
+def parophone(mot,nb_mots):
+    'Renvoie *nb_mots* de parophones de *mot*. *mot* doit être ecrit en fo-ne-tik'
+    parophones_trouves = []
     tsv_file = open("assets/Lexique383.tsv")
     dictionnaire = csv.reader(tsv_file, delimiter="\t")
     
     for row in dictionnaire:
         score = similarite_mot(mot,str(row[22]))
         if score > 0.5:
-            paraphones_trouves.append([score,(str(row[0]))])    
+            parophones_trouves.append([score,(str(row[0]))])    
     tsv_file.close()
-    paraphones_trouves.sort(reverse=True)
-    belle_liste = paraphones_trouves[0:nb_mots]
+    parophones_trouves.sort(reverse=True)
+    belle_liste = parophones_trouves[0:nb_mots]
 
     for mot in belle_liste:
 
