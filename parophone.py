@@ -58,9 +58,9 @@ def parophone(mot,nb_mots):
 
         special_char = [['Ã»','ê'],['Ã§','ç'],['Ã®','î'],['Ã©','é'],['Ã¨','è'],['Ã¯','ï'],['Ã ','à'],['Ã¢','â'],['Ãª','ê'],['Ã´','ô']]
 
-        for i in range(len(special_char)):
-            if special_char[i][0] in mot[1]:
-                mot[1] = mot[1].replace(special_char[i][0], special_char[i][1])
+        for c in special_char:
+            if c[0] in mot[1]:
+                mot[1] = mot[1].replace(c[0], c[1])
         
         print (mot[1] + (30 - len(mot[1]))*' ' + 'score :  ' + str(round(mot[0],2)))
 
