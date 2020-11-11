@@ -1,5 +1,8 @@
+#!/usr/bin/python3
+# -*- coding: iso-8859-1 -*-
+
 import csv
-f = open("assets/distance_sons.csv")
+f = open("assets/distance_sons.csv", encoding="iso-8859-1")
 distance_sons = f.readlines()
 
 
