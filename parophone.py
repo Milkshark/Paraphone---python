@@ -4,21 +4,24 @@ distance_sons = f.readlines()
 
 
 def similarite_son(a,b):
+    'renvoie un score entre 0 et 1 de similarité entre 2 sons'
     if a == "Â":
         a = '@'
     if b == "Â":
         b = '@'   
     'renvoie un score de similarité entre 2 sons'
+    'distance_sons[0] est la liste des sons utilisés dans le lexique'
     index_a = distance_sons[0].strip().split(';').index(a)
     index_b = distance_sons[0].strip().split(';').index(b)
 
     if index_a < index_b:
+        'Le tableau des sons est une matrice triangluaire inférieur, donc on ne va pas lire le triangle supérieur'
         index_a,index_b = index_b, index_a
 
     return(float(distance_sons[index_a].split(';')[index_b])/10)
 
 def similarite_syllabe(a,b):
-    'renvoie un score de similarité entre 2 syllabes'
+    'renvoie un score de similarité entre 2 syllabes (entre 0 et 1)'
     score = 0
     longeur_min = min(len(a),len(b))
     longeur_max = max(len(a),len(b))
@@ -27,7 +30,7 @@ def similarite_syllabe(a,b):
     return (score/longeur_max)
 
 def similarite_mot(a,b):
-    'renvoie un score de similarité entre 2 mots décomposés en syllabes'        
+    'renvoie un score de similarité entre 2 mots décomposés en syllabes (entre 0 et 1)'        
     les_syllabes_a = a.split('-')
     les_syllabes_b = b.split('-')
     longeur_min = min(len(les_syllabes_a),len(les_syllabes_b))
@@ -52,9 +55,9 @@ def parophone(mot,nb_mots):
             parophones_trouves.append([score,(str(row[0]))])    
     tsv_file.close()
     parophones_trouves.sort(reverse=True)
-    belle_liste = parophones_trouves[0:nb_mots]
+    parophones_retenus = parophones_trouves[0:nb_mots]
 
-    for mot in belle_liste:
+    for mot in parophones_retenus:
 
         special_char = [['Ã»','ê'],['Ã§','ç'],['Ã®','î'],['Ã©','é'],['Ã¨','è'],['Ã¯','ï'],['Ã ','à'],['Ã¢','â'],['Ãª','ê'],['Ã´','ô']]
 
