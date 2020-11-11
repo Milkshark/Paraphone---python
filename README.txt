@@ -43,4 +43,4 @@ rosés                         score :  0.97
 rosées                        score :  0.97
 
 Le deuxième chiffre est le nombre de mots à afficher
-Remarque : le mot doit être décomposé en syllabes par un '-'
+Remarque : le mot doit être décomposé en syllabes séparées par un '-'
