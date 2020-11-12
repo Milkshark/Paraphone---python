@@ -7,10 +7,6 @@ distance_sons = f.readlines()
 
 
 def similarite_son(a,b):
-    if a == "Â":
-        a = '@'
-    if b == "Â":
-        b = '@'   
     'renvoie un score de similarit� entre 2 sons'
     index_a = distance_sons[0].strip().split(';').index(a)
     index_b = distance_sons[0].strip().split(';').index(b)
