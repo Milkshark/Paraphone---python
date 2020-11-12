@@ -35,9 +35,14 @@ def similarite_mot(a,b):
     score = 0
     for syllabe in range(longeur_min):
         if (syllabe == 0 or syllabe == (longeur_min-1)):
+            
             score += similarite_syllabe(les_syllabes_a[syllabe],les_syllabes_b[syllabe])
         else:
-            score += 0.6*similarite_syllabe(les_syllabes_a[syllabe],les_syllabes_b[syllabe])
+            ntm = similarite_syllabe(les_syllabes_a[syllabe],les_syllabes_b[syllabe])
+            if ntm == 1:
+                score += 1
+            else :
+                score += 0.6*ntm
     return (score/longeur_max)
 
 def parophone(mot,nb_mots):
@@ -49,13 +54,13 @@ def parophone(mot,nb_mots):
     for row in dictionnaire:
         score = similarite_mot(mot,str(row[22]))
         if score > 0.5:
-            parophones_trouves.append([score,(str(row[0]))])    
+            parophones_trouves.append([score,(str(row[0])), str(row[22]) ])    
     tsv_file.close()
     parophones_trouves.sort(reverse=True)
     parophones_retenus = parophones_trouves[0:nb_mots]
 
     for mot in parophones_retenus:
-        print (mot[1] + (25 - len(mot[1]))*' ' + 'score :  ' + str(round(mot[0],2)))
+        print (mot[1] + (25 - len(mot[1]))*' ' + mot[2] + (20 - len(mot[2]))*' ' + 'score :  ' + str(round(mot[0],2)))
 
 while auto_exe:
 	mot_parophone = input('mot : ')
