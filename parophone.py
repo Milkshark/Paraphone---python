@@ -5,6 +5,7 @@ import csv
 f = open("assets/distance_sons.csv", encoding="iso-8859-1")
 distance_sons = f.readlines()
 
+auto_exe = True
 
 def similarite_son(a,b):
     'renvoie un score de similarité entre 2 sons'
@@ -54,6 +55,8 @@ def parophone(mot,nb_mots):
     parophones_retenus = parophones_trouves[0:nb_mots]
 
     for mot in parophones_retenus:
-        print (mot[1] + (30 - len(mot[1]))*' ' + 'score :  ' + str(round(mot[0],2)))
+        print (mot[1] + (25 - len(mot[1]))*' ' + 'score :  ' + str(round(mot[0],2)))
 
-
+while auto_exe:
+	mot_parophone = input('mot : ')
+	parophone(str(mot_parophone),30)
